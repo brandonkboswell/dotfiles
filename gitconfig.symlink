@@ -1,0 +1,19 @@
+[color]
+	ui = auto
+[user]
+	name = Brandon Boswell
+	email = brandonkboswell@gmail.com
+[core]
+	autocrlf = input
+	ignorecase = false
+[push]
+	default = simple
+[alias]
+  bracnh = branch
+  pus = push
+  puhs = push
+  pul = pull
+  plul = pull
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
