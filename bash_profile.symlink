@@ -61,6 +61,7 @@ function sman() {
 
 export MAMP_PATH="/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.3.20/bin:$PATH";
 export PATH="/usr/local/share/npm/bin:$PATH";
+export PATH="/Applications/sketchtool:$PATH";
 export PATH=$HOME/local/node/bin:/usr/local/bin:/usr/local/lib/node:$PATH;
 export PATH="/Library/Python/2.7/site-packages:$PATH";
 export PATH=/usr/local/bin:$MAMP_PATH:$PATH:/usr/local/sbin;
