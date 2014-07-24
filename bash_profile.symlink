@@ -24,10 +24,14 @@ alias reloadNifty="sudo kextunload -b com.apple.driver.AppleSDXC && sudo kextloa
 alias cdC="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/mediareputations"
 alias cdD="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/distribute"
 alias cdD2="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Distribute2-AWS/current"
+alias cdDor="cd /Users/brandonkboswell/Sites/dorsata"
 alias cdE="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Cont3ntExtension"
 alias cdM="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Mobile2/www"
 alias cdBKB="cd /Users/brandonkboswell/Sites/brandonkboswell2"
 alias cdTrello="cd /Users/brandonkboswell/Sites/TrelloScoreboard"
+
+#Ruby Aliases
+alias gemPath="~/.rvm/gems/ruby-1.9.3-p392/gems"
 
 #Phonegap Aliases
 alias runIos="phonegap run ios"
@@ -58,6 +62,8 @@ function sman() {
 . ~/z/z.sh
 
 #End My Aliases
+
+source ~/.profile
 
 export MAMP_PATH="/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.3.20/bin:$PATH";
 export PATH="/usr/local/share/npm/bin:$PATH";
@@ -103,9 +109,13 @@ else
     RESET="\033[m"
 fi
 
+export BUNDLER_EDITOR=subl
+
 parse_git_dirty () {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

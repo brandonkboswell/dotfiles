@@ -1243,9 +1243,9 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>367 342 214 309 0 0 1680 1028 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>336 248 605 485 0 0 1680 1028 </string>
+	<string>336 248 924 485 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 56 1680 972 0 0 1680 1028 </string>
+	<string>235 324 810 576 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>213 624 810 554 0 0 1920 1178 </string>
 	<key>New Bookmarks</key>
@@ -1815,7 +1815,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-04-30T21:50:52Z</date>
+	<date>2014-07-24T04:47:20Z</date>
 	<key>SUSkippedVersion</key>
 	<string>1.0.0.20130622</string>
 	<key>SavePasteHistory</key>
