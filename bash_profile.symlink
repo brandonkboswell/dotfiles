@@ -1,15 +1,15 @@
+source ~/.profile
+
+#Setup Editor
+export EDITOR=/usr/local/bin/subl
+
 #PHP Aliases
 alias php='php -c /Library/Application\ Support/appsolute/MAMP\ PRO/conf/php.ini'
 alias phpunit="./vendor/bin/phpunit -d max_execution_time=0"
 alias composer="php -dmemory_limit=1G /Users/brandonkboswell/bin/composer"
 
-#Server Aliases
-alias sshD="ssh -i ~/.ssh/afterThief.pem ubuntu@54.196.247.223"
-alias sshP="ssh -i ~/.ssh/afterThief.pem ubuntu@54.242.38.156"
-alias sshAWSPHP="ssh -i ~/.ssh/brandon.pem ubuntu@23.20.212.197"
-alias sshAWSSQL="ssh -i ~/.ssh/brandon.pem ec2-user@184.73.23.194"
-alias sshEBS="ssh -i ~/.ssh/brandon.pem ec2-user@ec2-54-235-38-98.compute-1.amazonaws.com"
-alias sshBACKUP="ssh -i ~/.ssh/brandon.pem ec2-user@ec2-50-19-145-130.compute-1.amazonaws.com"
+#Fix PostGres
+alias fixPostgres="rm /usr/local/var/postgres/postmaster.pid; lunchy start postgres"
 
 #Chrome Aliases
 alias mobileChrome="open -a Google\ Chrome --args --disable-web-security --allow-file-access-from-files"
@@ -21,17 +21,8 @@ alias hideDesktop="defaults write com.apple.finder CreateDesktop false; killall 
 alias reloadNifty="sudo kextunload -b com.apple.driver.AppleSDXC && sudo kextload -b com.apple.driver.AppleSDXC && diskutil mountDisk /dev/disk2"
 
 #Project Aliases
-alias cdC="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/mediareputations"
-alias cdD="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/distribute"
-alias cdD2="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Distribute2-AWS/current"
-alias cdDor="cd /Users/brandonkboswell/Sites/dorsata"
-alias cdE="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Cont3ntExtension"
-alias cdM="cd /Users/brandonkboswell/Sites/Cont3nt.com/git/Mobile2/www"
-alias cdBKB="cd /Users/brandonkboswell/Sites/brandonkboswell2"
-alias cdTrello="cd /Users/brandonkboswell/Sites/TrelloScoreboard"
-
-#Ruby Aliases
-alias gemPath="~/.rvm/gems/ruby-1.9.3-p392/gems"
+alias cdDor="cd /Users/brandonkboswell/Sites/dorsata/site"
+alias cdCon="cd /Users/brandonkboswell/Sites/dorsata/dorsata-consumption-resources"
 
 #Phonegap Aliases
 alias runIos="phonegap run ios"
@@ -48,10 +39,14 @@ alias catBash="cat ~/.bash_profile"
 alias runningvms="VBoxManage list runningvms"
 alias sshkey="cat ~/.ssh/afterThief.pub | pbcopy && echo 'Copied To Clipboard.'"
 alias test="watchr ./autotest_watchr.rb"
-alias pagekite="pagekite.py 80 cont3nt.pagekite.me"
+alias pagekite="pagekite.py 3000 brandonkboswell.pagekite.me"
 
 function mergeIntoMaster(){
   git checkout master && git merge --no-ff develop
+}
+
+function dMergeMaster(){
+  git checkout master; git merge staging; git push
 }
 
 function sman() {
@@ -61,9 +56,9 @@ function sman() {
 # init z https://github.com/rupa/z
 . ~/z/z.sh
 
-#End My Aliases
+eval "$(rbenv init -)"
 
-source ~/.profile
+#End My Aliases
 
 export MAMP_PATH="/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.3.20/bin:$PATH";
 export PATH="/usr/local/share/npm/bin:$PATH";
@@ -109,7 +104,7 @@ else
     RESET="\033[m"
 fi
 
-export BUNDLER_EDITOR=subl
+export BUNDLER_EDITOR=/usr/local/bin/subl
 
 parse_git_dirty () {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
@@ -117,5 +112,3 @@ parse_git_dirty () {
 parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
